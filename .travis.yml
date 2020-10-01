@@ -1,0 +1,17 @@
+sudo: required
+service:
+    - docker
+
+
+script:
+    - docker build -t pkopensrc/node .
+    - docker images pkopensrc/node
+
+before_deploy:
+    docker login -u pkopensrc -p DOcker@123
+
+deploy:
+    provider: script
+    script: docker push pkopensrc/node
+    on:
+       branch: master
