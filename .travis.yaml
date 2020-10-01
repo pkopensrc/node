@@ -1,0 +1,8 @@
+sudo: required
+service:
+    - docker
+
+
+script:
+    - docker build -t pkopensrc/node .
+    - docker images pkopensrc/node
